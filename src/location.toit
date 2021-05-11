@@ -1,10 +1,11 @@
-// Copyright (C) 2019 Toitware ApS. All rights reserved.
+// Copyright (C) 2021 Toitware ApS. All rights reserved.
+// Use of this source code is governed by an MIT-style license that can be found
+// in the LICENSE file.
 
 import serialization
 
 /**
-A location in a geographical coordinate system.
-A location is comprised of a latitude and a longitude.
+Support for latitude and longitude-based locations.
 */
 
 /**
@@ -48,7 +49,6 @@ class Location:
   /** See $super. */
   operator == other:
     if other is not Location: return false
-    other as Location
     return latitude == other.latitude and longitude == other.longitude
 
   /** The hash code of this location. */
