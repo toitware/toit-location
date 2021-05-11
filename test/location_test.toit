@@ -2,7 +2,7 @@
 // Use of this source code is governed by an MIT-style license that can be found
 // in the LICENSE file.
 
-import ..src.location show *
+import location show Location
 import expect show *
 
 main:
