@@ -1,1 +1,2 @@
-# Toit Package.
+name: location
+description: Support for locations in a geographical coordinate system.
