@@ -2,7 +2,7 @@
 // Use of this source code is governed by an MIT-style license that can be found
 // in the LICENSE file.
 
-import serialization
+import encoding.tison
 
 /**
 Support for latitude and longitude-based locations.
@@ -27,7 +27,7 @@ class Location:
   This is the inverse of $to_byte_array.
   */
   constructor.deserialize bytes/ByteArray:
-    values := serialization.deserialize bytes
+    values := tison.decode bytes
     latitude = values[0]
     longitude = values[1]
 
@@ -41,7 +41,7 @@ class Location:
   Produces valid input to $Location.deserialize.
   */
   to_byte_array:
-    return serialization.serialize [latitude, longitude]
+    return tison.encode [latitude, longitude]
 
   component_string_ value/float positive/string negative/string -> string:
     return "$(%3.5f value.abs)$(value >= 0 ? positive : negative)"
