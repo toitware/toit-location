@@ -29,7 +29,7 @@ class Location:
   /**
   Constructs a location from the given bytes.
 
-  This is the inverse of $to_byte_array.
+  This is the inverse of $to-byte-array.
   */
   constructor.deserialize bytes/ByteArray:
     values := tison.decode bytes
@@ -45,17 +45,17 @@ class Location:
 
   /** See $super. */
   stringify:
-    return "$(component_string_ latitude "N" "S"), $(component_string_ longitude "E" "W")"
+    return "$(component-string_ latitude "N" "S"), $(component-string_ longitude "E" "W")"
 
   /**
   Serializes this location.
 
   Produces valid input to $Location.deserialize.
   */
-  to_byte_array:
+  to-byte-array:
     return tison.encode [latitude, longitude]
 
-  component_string_ value/float positive/string negative/string -> string:
+  component-string_ value/float positive/string negative/string -> string:
     return "$(%3.5f value.abs)$(value >= 0 ? positive : negative)"
 
   /** See $super. */
@@ -64,5 +64,5 @@ class Location:
     return latitude == other.latitude and longitude == other.longitude
 
   /** The hash code of this location. */
-  hash_code -> int:
+  hash-code -> int:
     return latitude.bits * 13 + longitude.bits * 17
