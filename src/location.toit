@@ -11,6 +11,7 @@ Support for latitude and longitude-based locations.
 
 /// Cached location client used by $Location.current.
 location-client_/api.LocationClient? ::= (api.LocationClient).open
+    --timeout=(Duration --s=1)
     --if-absent=: null
 
 /**
